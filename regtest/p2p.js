@@ -63,13 +63,13 @@ describe('P2P Functionality', function() {
         log.error('error="%s"', err.message);
       });
 
-      log.info('Waiting for Bitcoin Core to initialize...');
+      log.info('Waiting for Zcash to initialize...');
 
       bitcoind.start(function(err) {
         if (err) {
           throw err;
         }
-        log.info('Bitcoind started');
+        log.info('Zcashd started');
 
         client = new BitcoinRPC({
           protocol: 'http',
