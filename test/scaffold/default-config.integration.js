@@ -29,7 +29,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.bitcore/bitcore-node.json');
+          path.should.equal(process.env.HOME + '/.bitcore/zcash-bitcore-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -58,8 +58,8 @@ describe('#defaultConfig', function() {
       services: [
         'bitcoind',
         'web',
-        'insight-api',
-        'insight-ui'
+        'zcash-insight-api',
+        'zcash-insight-ui'
       ],
       servicesConfig: {
         bitcoind: {
@@ -74,7 +74,7 @@ describe('#defaultConfig', function() {
       fs: {
         existsSync: sinon.stub().returns(false),
         writeFileSync: function(path, data) {
-          path.should.equal(process.env.HOME + '/.bitcore/bitcore-node.json');
+          path.should.equal(process.env.HOME + '/.bitcore/zcash-bitcore-node.json');
           data.should.equal(config);
         },
         readFileSync: function() {
@@ -87,7 +87,7 @@ describe('#defaultConfig', function() {
     });
     var home = process.env.HOME;
     var info = defaultConfig({
-      additionalServices: ['insight-api', 'insight-ui']
+      additionalServices: ['zcash-insight-api', 'zcash-insight-ui']
     });
     info.path.should.equal(home + '/.bitcore');
     info.config.network.should.equal('livenet');
@@ -95,8 +95,8 @@ describe('#defaultConfig', function() {
     info.config.services.should.deep.equal([
       'bitcoind',
       'web',
-      'insight-api',
-      'insight-ui'
+      'zcash-insight-api',
+      'zcash-insight-ui'
     ]);
     var bitcoind = info.config.servicesConfig.bitcoind;
     should.exist(bitcoind);

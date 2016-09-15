@@ -9,7 +9,7 @@ var log = index.log;
 log.debug = function() {};
 
 var chai = require('chai');
-var bitcore = require('bitcore-lib-zcash');
+var bitcore = require('zcash-bitcore-lib');
 var rimraf = require('rimraf');
 var node;
 

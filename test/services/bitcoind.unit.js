@@ -6,7 +6,7 @@ var path = require('path');
 var EventEmitter = require('events').EventEmitter;
 var should = require('chai').should();
 var crypto = require('crypto');
-var bitcore = require('bitcore-lib-zcash');
+var bitcore = require('zcash-bitcore-lib');
 var _ = bitcore.deps._;
 var sinon = require('sinon');
 var proxyquire = require('proxyquire');
@@ -407,7 +407,7 @@ describe('Bitcoin Service', function() {
       var config = {
         node: {
           network: bitcore.Networks.testnet,
-          configPath: '/tmp/.bitcore/bitcore-node.json'
+          configPath: '/tmp/.bitcore/zcash-bitcore-node.json'
         },
         spawn: {
           datadir: './data',
